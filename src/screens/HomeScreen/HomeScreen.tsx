@@ -13,7 +13,7 @@ export default function HomeScreen() {
     <Box
       tag="main"
       styleSheet={{
-        backgroundColor: theme.colors.positive.x100,
+        backgroundColor: theme.colors.neutral.x100,
         flex: 1,
         alignItems: 'center',
       }}
