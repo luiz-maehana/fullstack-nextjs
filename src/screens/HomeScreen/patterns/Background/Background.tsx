@@ -2,9 +2,11 @@ import Box from "@src/components/Box/Box";
 import Text from "@src/components/Text/Text";
 
 export default function Background() {
-  return(
+  return (
     <Box>
-      <Text>Background</Text>      
+      <Text>
+        Background
+      </Text>
     </Box>
   )
 }

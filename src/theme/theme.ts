@@ -1,7 +1,10 @@
-const theme = {
-  typography: {
-    fontFamily: '"Open Sans", sans-serif'
-  }
-}
+import { typography } from './defaults/typography'; 
 
-export default theme
+const theme = {
+  typography,
+};
+
+export type Theme = typeof theme;
+export type ThemeTypographyVariants = keyof typeof typography.variants;
+
+export default theme;

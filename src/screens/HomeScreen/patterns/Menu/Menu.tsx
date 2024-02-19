@@ -2,9 +2,11 @@ import Box from "@src/components/Box/Box";
 import Text from "@src/components/Text/Text";
 
 export default function Menu() {
-  return(
+  return (
     <Box>
-      <Text>Menu</Text>
+      <Text>
+        Menu
+      </Text>
     </Box>
   )
 }
