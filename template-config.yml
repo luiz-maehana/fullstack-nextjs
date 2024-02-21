@@ -1,0 +1,9 @@
+site:
+  title: "Luiz Fernando Maehana | Currículo Web"
+  description: "Bem Vindo a Currículo Web"
+personal:
+  name: "Luiz Fernando Maehana"
+  initial: "LM"
+  avatar: "https://github.com/luiz-maehana.png"
+  socialNetworks:
+    linkedin: "https://www.linkedin.com/in/luizmaehana"

@@ -1,9 +1,11 @@
 import Box from "@src/components/Box/Box";
 import Text from "@src/components/Text/Text";
 import { useTheme } from "@src/theme/ThemeProvider";
+import { useTemplateConfig } from "@src/services/template/TemplateConfigContext";
 
 export default function Footer() {
   const theme = useTheme();
+  const templateConfig = useTemplateConfig();
   return (
     <Box
       styleSheet={{
@@ -19,7 +21,7 @@ export default function Footer() {
       }}
     >
       <Text variant="body2">
-        Feito com ❤️ por Luiz Fernando Maehana
+        Feito com ❤️ por {templateConfig?.personal?.name}
       </Text>
     </Box>
   )
