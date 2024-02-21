@@ -33,7 +33,6 @@ export default function Feed({ children }) {
 Feed.Header = () => {
   const theme = useTheme();
   const templateConfig = useTemplateConfig();
-  // console.log(templateConfig);
 
   return (
     <Box
@@ -86,12 +85,6 @@ Feed.Header = () => {
           gap: "4px",
         }}
       >
-        {/* <Link
-          target="_blank"
-          href={templateConfig.personal.socialNetworks.github}
-        >
-          <Icon name="github" /> 
-        </Link> */}
         {Object.keys(templateConfig.personal.socialNetworks).map(key => {
           const socialNetwork = templateConfig.personal.socialNetworks[key];
           if (socialNetwork) {
@@ -101,20 +94,15 @@ Feed.Header = () => {
                 target="_blank"
                 href={templateConfig.personal.socialNetworks[key]}
               >
-                <Icon name={key as any} />
+                <Button.Base>
+                  <Icon name={key as any} />
+                </Button.Base>
               </Link>
             )
           }
           return null;
         })}
       </Box>
-
-      {/* <Link href="https://youtube.com/DevSoutinho">
-        <Icon name="youtube" />
-      </Link>
-      <Icon name="twitter" />
-      <Icon name="instagram" />
-      <Icon name="github" /> */}
     </Box>
   )
 }
