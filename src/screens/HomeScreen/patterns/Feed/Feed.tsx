@@ -7,6 +7,8 @@ import Link from "@src/components/Link/Link";
 import Button from "@src/components/Button/Button";
 import { useTheme } from "@src/theme/ThemeProvider";
 import { useTemplateConfig } from "@src/services/template/TemplateConfigContext";
+import type { Post } from '@src/services/posts/PostsService';
+import { FeedPost } from './patterns/FeedPost';
 
 interface FeedProps {
   children: React.ReactNode;
@@ -21,7 +23,7 @@ export default function Feed({ children }) {
         width: '100%',
         maxWidth: '683px',
         borderRadius: '8px',
-        paddingVertical: '40px',
+        paddingTop: '40px',
         paddingHorizontal: '32px',
       }}
     >
@@ -62,57 +64,67 @@ Feed.Header = () => {
 
         <Box
           styleSheet={{
-            justifyContent: 'space-between',
+            flexDirection: "column",
+            gap: "4px",
           }}
         >
-          <Box styleSheet={{ flex: 1, justifyContent: 'space-between', display: { xs: 'none', md: 'flex' } }}>
-            <Button fullWidth colorVariant="primary" size="xl" href="/">Newsletter</Button>
-            <Button fullWidth colorVariant="neutral" size="xl" href="/">Buy me a coffee</Button>
-          </Box>
-          <Box styleSheet={{ flex: 1, justifyContent: 'space-between', display: { xs: 'flex', md: 'none' } }}>
-            <Button fullWidth colorVariant="primary" size="xs" href="/">Newsletter</Button>
-            <Button fullWidth colorVariant="neutral" size="xs" href="/">Buy me a coffee</Button>
-          </Box>
+          {Object.keys(templateConfig.personal.socialNetworks).map(key => {
+            const socialNetwork = templateConfig.personal.socialNetworks[key];
+            if (socialNetwork) {
+              return (
+                <Link
+                  key={key}
+                  target="_blank"
+                  href={templateConfig.personal.socialNetworks[key]}
+                >
+                  <Button.Base>
+                    <Icon name={key as any} />
+                  </Button.Base>
+                </Link>
+              )
+            }
+            return null;
+          })}
         </Box>
+
       </Box>
       <Text tag="h1" variant="heading4">
         {templateConfig?.personal?.name}
       </Text>
 
-      <Box
-        styleSheet={{
-          flexDirection: "row",
-          gap: "4px",
-        }}
-      >
-        {Object.keys(templateConfig.personal.socialNetworks).map(key => {
-          const socialNetwork = templateConfig.personal.socialNetworks[key];
-          if (socialNetwork) {
-            return (
-              <Link
-                key={key}
-                target="_blank"
-                href={templateConfig.personal.socialNetworks[key]}
-              >
-                <Button.Base>
-                  <Icon name={key as any} />
-                </Button.Base>
-              </Link>
-            )
-          }
-          return null;
-        })}
-      </Box>
+
     </Box>
   )
 }
 
-Feed.Posts = () => {
+interface FeedPostsProps {
+  posts: Post[]
+}
+
+Feed.Posts = ({ posts }: FeedPostsProps) => {
   return (
     <Box>
-      <Text>
-        Feed Posts
+      <Text variant='heading3' styleSheet={{
+        marginBottom: '24px'
+      }}>
+        Experiência Profissional
       </Text>
+      {posts.map(({ title, slug, metadata, content }) => {
+        const { dateStart, dateEnd, excerpt, url, tags } = metadata
+        return (
+          <FeedPost
+            key={slug}
+            title={title}
+            dateStart={dateStart}
+            dateEnd={dateEnd}
+            excerpt={excerpt}
+            url={url}
+            tags={tags}
+            content={content}
+          >
+          </FeedPost>
+        )
+      })}
     </Box>
   )
 }

@@ -28,7 +28,7 @@ export default function PostsService() {
           metadata: {
             dateStart: new Date(data.dateStart).toISOString(),
             dateEnd: new Date(data.dateEnd).toISOString(),
-            url: data.url,
+            url: (data.url) ? data.url : '',
             excerpt: data.excerpt,
             tags: data.tags,
           },
@@ -39,6 +39,9 @@ export default function PostsService() {
         return post
       })
       const posts = Promise.all(postsPromises)
+      const orderedPosts = (await posts).sort((a: Post, b: Post) => {
+        return new Date(b.metadata.dateStart).getTime() - new Date(a.metadata.dateStart).getTime()
+      })
       return posts
     }
   }

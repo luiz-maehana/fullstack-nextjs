@@ -4,6 +4,7 @@ import Icon from "@src/components/Icon/Icon";
 import Text from "@src/components/Text/Text";
 import { useTheme } from "@src/theme/ThemeProvider";
 import { useTemplateConfig } from "@src/services/template/TemplateConfigContext";
+import Image from "@src/components/Image/Image";
 
 export default function Menu() {
   const theme = useTheme();
@@ -38,9 +39,12 @@ export default function Menu() {
           },
         }}
       >
-        <Text>
-          {templateConfig?.personal?.initial}
-        </Text>
+        <Image
+          styleSheet={{
+            width: '100%',
+            height: '100%'
+          }}
+          src={templateConfig?.personal?.logo} alt={templateConfig?.personal?.initial} />
       </Button.Base>
 
       <Button.Base

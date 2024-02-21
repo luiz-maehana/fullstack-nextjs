@@ -5,8 +5,13 @@ import Background from "./patterns/Background/Background";
 import Feed from "./patterns/Feed/Feed";
 import Footer from "./patterns/Footer/Footer";
 import Menu from "./patterns/Menu/Menu";
+import type { Post } from "@src/services/posts/PostsService";
 
-function HomeScreen(props) {
+interface HomeScreenProps {
+  posts: Post[]
+}
+
+function HomeScreen(props: HomeScreenProps) {
   const theme = useTheme();
   
   return (
@@ -22,6 +27,7 @@ function HomeScreen(props) {
       <Menu />
       <Feed>
         <Feed.Header />
+        <Feed.Posts posts={props.posts} />
       </Feed>
       <Footer />
     </Box>

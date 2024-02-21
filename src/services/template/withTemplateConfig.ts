@@ -10,6 +10,7 @@ export interface TemplateConfig {
     name?: string;
     initial?: string;
     avatar?: string;
+    logo?: string;
     socialNetworks?: {
       youtube?: string;
       github?: string;
