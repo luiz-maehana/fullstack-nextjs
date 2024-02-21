@@ -3,6 +3,7 @@ site:
   description: "Bem Vindo a Currículo Web"
 personal:
   name: "Luiz Fernando Maehana"
+  job: "Desenvolvedor Full Stack"
   initial: "LM"
   avatar: "https://github.com/luiz-maehana.png"
   logo: "https://maehana.com.br/assets/images/logo.png"

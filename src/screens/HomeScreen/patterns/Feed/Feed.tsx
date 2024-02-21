@@ -65,7 +65,7 @@ Feed.Header = () => {
         <Box
           styleSheet={{
             flexDirection: "column",
-            gap: "4px",
+            gap: "16px",
           }}
         >
           {Object.keys(templateConfig.personal.socialNetworks).map(key => {
@@ -90,6 +90,9 @@ Feed.Header = () => {
       </Box>
       <Text tag="h1" variant="heading4">
         {templateConfig?.personal?.name}
+      </Text>
+      <Text tag="h3" variant="body1">
+        {templateConfig?.personal?.job}
       </Text>
 
 

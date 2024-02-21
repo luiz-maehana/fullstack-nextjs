@@ -8,6 +8,7 @@ export interface TemplateConfig {
   }
   personal?: {
     name?: string;
+    job?: string;
     initial?: string;
     avatar?: string;
     logo?: string;
