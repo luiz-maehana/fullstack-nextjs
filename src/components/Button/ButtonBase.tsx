@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { useRipple } from 'react-use-ripple';
+// import { useRipple } from 'react-use-ripple';
 import { ThemeTypographyVariants } from "@src/theme/theme";
 import Text from "../Text/Text";
 import { StyleSheet } from "@src/theme/StyleSheet";
@@ -33,10 +33,10 @@ export default function ButtonBase({
   const isLink = Boolean(href);
   const Tag = isLink ? 'a' : 'button';
   
-  useRipple(ref, {
-    animationLength: 600,
-    rippleColor: 'rgba(255,255,255,0.7)',
-  });
+  // useRipple(ref, {
+  //   animationLength: 600,
+  //   rippleColor: 'rgba(255,255,255,0.7)',
+  // });
 
 
   return (  
