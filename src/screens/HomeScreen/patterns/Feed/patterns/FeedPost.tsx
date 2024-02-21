@@ -36,7 +36,7 @@ export function FeedPost({ title, excerpt, dateStart, dateEnd, tags, url, conten
         styleSheet={{
           position: 'absolute',
           top: 0, bottom: 0,
-          color: theme.colors.neutral.x200,
+          color: theme.colors.neutral.x300,
           marginLeft: '-16px',
         }}
       >
