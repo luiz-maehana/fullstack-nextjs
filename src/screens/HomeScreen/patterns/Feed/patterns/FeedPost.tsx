@@ -12,6 +12,7 @@ interface FeedPostProps {
   dateEnd: string
   tags: string[]
   content: string
+  children: React.ReactNode
 }
 
 export function FeedPost({ title, excerpt, dateStart, dateEnd, tags, url, content }: FeedPostProps) {

@@ -102,9 +102,10 @@ Feed.Header = () => {
 
 interface FeedPostsProps {
   posts: Post[]
+  children: React.ReactNode
 }
 
-Feed.Posts = ({ posts }: FeedPostsProps) => {
+Feed.Posts = ({ posts, children }: FeedPostsProps) => {
   return (
     <Box>
       <Text variant='heading3' styleSheet={{
@@ -125,6 +126,7 @@ Feed.Posts = ({ posts }: FeedPostsProps) => {
             tags={tags}
             content={content}
           >
+            {children}
           </FeedPost>
         )
       })}

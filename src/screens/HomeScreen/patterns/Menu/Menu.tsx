@@ -9,7 +9,8 @@ import Image from "@src/components/Image/Image";
 export default function Menu() {
   const theme = useTheme();
   const templateConfig = useTemplateConfig();
-  const baseSize = '40px';
+  const baseSize = '140px';
+  const xsBaseSize = '100px';
   return (
     <Box
       styleSheet={{
@@ -17,7 +18,8 @@ export default function Menu() {
         position: 'absolute',
         left: 0, right: 0, top: 0,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
+        alignItems: 'center',
         paddingVertical: '16px',
         paddingHorizontal: '20px',
         color: theme.colors.neutral.x000,
@@ -25,8 +27,14 @@ export default function Menu() {
     >
       <Button.Base
         styleSheet={{
-          width: baseSize,
-          height: baseSize,
+          width: {
+            xs: xsBaseSize,
+            md: baseSize
+          },
+          height: {
+            xs: xsBaseSize,
+            md: baseSize
+          },
           backgroundColor: theme.colors.primary.x500,
           borderRadius: '100%',
           alignItems: 'center',
@@ -45,25 +53,6 @@ export default function Menu() {
             height: '100%'
           }}
           src={templateConfig?.personal?.logo} alt={templateConfig?.personal?.initial} />
-      </Button.Base>
-
-      <Button.Base
-        styleSheet={{
-          width: baseSize,
-          height: baseSize,
-          backgroundColor: theme.colors.neutral.x500,
-          borderRadius: '100%',
-          alignItems: 'center',
-          justifyContent: 'center',
-          hover: {
-            backgroundColor: theme.colors.neutral.x400,
-          },
-          focus: {
-            backgroundColor: theme.colors.neutral.x600,
-          },
-        }}
-      >
-        <Icon name="menu" />
       </Button.Base>
     </Box>
   )
