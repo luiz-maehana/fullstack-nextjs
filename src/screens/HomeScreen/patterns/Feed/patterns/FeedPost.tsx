@@ -1,4 +1,5 @@
 import Box from "@src/components/Box/Box";
+import Button from "@src/components/Button/Button";
 import Icon from "@src/components/Icon/Icon";
 import Link from "@src/components/Link/Link";
 import Text from "@src/components/Text/Text";
@@ -37,7 +38,7 @@ export function FeedPost({ title, excerpt, dateStart, dateEnd, tags, url, conten
         styleSheet={{
           position: 'absolute',
           top: 0, bottom: 0,
-          color: theme.colors.neutral.x300,
+          color: theme.colors.neutral.x500,
           marginLeft: '-16px',
         }}
       >
@@ -113,24 +114,16 @@ export function FeedPost({ title, excerpt, dateStart, dateEnd, tags, url, conten
         gap: '4px',
       }}>
         {tags?.map((tag) => (
-          <Link
+          <Button
             key={tag}
-            href={`/tags/${tag}`}
-            variant="body4"
-            styleSheet={{
-              color: theme.colors.neutral.x800,
-              backgroundColor: theme.colors.neutral.x100,
-              borderRadius: "1000px",
-              padding: '6px 8px',
-              hover: {
-                color: theme.colors.primary.x900,
-                backgroundColor: theme.colors.primary.x200,
-              }
-            }}
-            colorVariantEnabled={false}
+            variant="contained"
+            colorVariant="primary"
+            size="xs"
           >
-            {tag}
-          </Link>
+            <Text variant="body4">
+              {tag}
+            </Text>
+          </Button>
         ))}
       </Box>
     </Box>
