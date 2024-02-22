@@ -18,13 +18,13 @@ interface FeedPostProps {
 export function FeedPost({ title, excerpt, dateStart, dateEnd, tags, url, content }: FeedPostProps) {
   const theme = useTheme();
   const postDateStart = new Date(dateStart)
-    .toLocaleDateString('pt-BR', { year: 'numeric', month: 'short', day: 'numeric' })
+    .toLocaleDateString('pt-BR', { year: 'numeric', month: 'short' })
     .replace('.', '')
-    .replace(/de /g, '');
+    .replace(/ de /g, '/');
   const postDateEnd = new Date(dateEnd)
-    .toLocaleDateString('pt-BR', { year: 'numeric', month: 'short', day: 'numeric' })
+    .toLocaleDateString('pt-BR', { year: 'numeric', month: 'short' })
     .replace('.', '')
-    .replace(/de /g, '');
+    .replace(/ de /g, '/');
 
   return (
     <Box
