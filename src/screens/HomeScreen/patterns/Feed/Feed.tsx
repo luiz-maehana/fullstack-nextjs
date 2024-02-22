@@ -102,7 +102,7 @@ Feed.Header = () => {
 
 interface FeedPostsProps {
   posts: Post[]
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 Feed.Posts = ({ posts, children }: FeedPostsProps) => {
