@@ -6,8 +6,7 @@ export async function getStaticProps() {
   const posts = await PostsService().getAll()
   return {
     props: await withTemplateConfig({
-      posts, 
-      exemplo: "teste",
+      posts
     })
   }
 }

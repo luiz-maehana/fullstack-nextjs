@@ -18,14 +18,16 @@ interface FeedPostProps {
 
 export function FeedPost({ title, excerpt, dateStart, dateEnd, tags, url, content }: FeedPostProps) {
   const theme = useTheme();
+
   const postDateStart = new Date(dateStart)
     .toLocaleDateString('pt-BR', { year: 'numeric', month: 'short' })
     .replace('.', '')
     .replace(/ de /g, '/');
-  const postDateEnd = new Date(dateEnd)
+
+  const postDateEnd = (dateEnd) ? new Date(dateEnd)
     .toLocaleDateString('pt-BR', { year: 'numeric', month: 'short' })
     .replace('.', '')
-    .replace(/ de /g, '/');
+    .replace(/ de /g, '/') : 'Até o Momento';
 
   return (
     <Box
